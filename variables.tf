@@ -11,3 +11,8 @@ variable "public_subnet_cidr" {
   description = "CDIR for the public subnet"
   default = "10.0.0.0/24"
 }
+
+variable "ami" {
+  description = "Ubuntu 17.04 with EBS"
+  default = "ami-b4a79dd2"
+}
