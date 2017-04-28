@@ -1,5 +1,6 @@
 resource "aws_vpc" "main" {
   cidr_block = "${var.vpc_cdir}"
+  enable_dns_hostnames = true #This is needed to allow public dns for the hosts
   tags {
     Name = "victorf-leap-forward-vpc"
   }
