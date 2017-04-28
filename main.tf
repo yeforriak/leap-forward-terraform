@@ -21,6 +21,13 @@ resource "aws_security_group" "etcd-servers" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  egress {
+    from_port = 80
+    to_port = 80
+    protocol = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+}
+
   tags {
     Name = "etcd-servers-sg"
   }
@@ -39,6 +46,6 @@ resource "aws_instance" "etcd-servers" {
   }
 
   tags {
-    Name = "${format("victorf-leap-forward-etcd-%d", count.index)}"
+    Name = "victorf-leap-forward-etcd"
   }
 }
