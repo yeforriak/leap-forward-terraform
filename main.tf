@@ -27,6 +27,7 @@ resource "aws_security_group" "etcd-servers" {
 }
 
 resource "aws_instance" "etcd-servers" {
+  count = "3"
   ami = "${var.ami}"
   key_name = "${aws_key_pair.main.key_name}"
   instance_type = "t2.micro"
@@ -38,6 +39,6 @@ resource "aws_instance" "etcd-servers" {
   }
 
   tags {
-    Name = "victorf-leap-forward-etcd"
+    Name = "${format("victorf-leap-forward-etcd-%d", count.index)}"
   }
 }

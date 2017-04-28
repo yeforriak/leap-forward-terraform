@@ -13,6 +13,6 @@ variable "public_subnet_cidr" {
 }
 
 variable "ami" {
-  description = "Ubuntu 17.04 with EBS"
+  description = "Centos"
   default = "ami-0d063c6b"
 }
